@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('stage') {
+            steps {
+                echo 'Hello stage'
+            }
+        }
+        stage('prod') {
+            input {
+                message "should we continue?"
+                ok "yes we should"
+            }
+            steps {
+                echo 'Hello prod'
+            }
+        }
+    }
+}
